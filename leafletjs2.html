@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LeafletJS and OpenStreetMap - Hannah Suarez</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+</head>
+<body>
+<div id="map" style="width: 1920x; height: 1080px"></div>
+<script>
+
+     // Add your map
+
+    var map = L.map('map',{scrollWheelZoom:false}).setView([43.64373, -79.39927], 18);
+
+    // Attribute below
+    
+    mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+    // Add your custom icon
+
+    var customIcon = L.icon({
+        iconUrl: 'IMAGE_HERE', // link to the icon
+        iconSize: [80, 80], // size of the icon
+        });
+
+    // Add the location of your custom icon
+
+    var marker = L.marker([43.644245, -79.398700], {icon: customIcon}).addTo(map);
+</script>
+
+</body>
+</html>
